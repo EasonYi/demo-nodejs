@@ -2,4 +2,4 @@
 
 npm install httpdispatcher
 
-node myFirstHTTPServer.js
+nodejs myFirstHTTPServer.js
