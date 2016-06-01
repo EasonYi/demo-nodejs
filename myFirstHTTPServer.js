@@ -4,12 +4,6 @@ var http = require('http');
 //Lets define a port we want to listen to
 const PORT=8848; 
 
-//We need a function which handles requests and send response
-function handleRequest(request, response){
-    console.log("Request: " + request)
-    response.end('It Works!! Path Hit: ' + request.url);
-}
-
 //Create a server
 var server = http.createServer(handleRequest);
 
@@ -25,11 +19,12 @@ var dispatcher = require('httpdispatcher');
 function handleRequest(request, response){
     try {
         //log the request on console
-        console.log(request.url);
+        console.log(request);
         //Disptach
         dispatcher.dispatch(request, response);
     } catch(err) {
         console.log(err);
+        response.end('It does not Works!! Path Hit: ' + request.url);
     }
 }
 
